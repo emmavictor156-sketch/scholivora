@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#6641b8">
-<title>BURSARPRO — School Finance</title>
+<title>SCHOLIVORA — School Finance</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 :root{--ink:#17243b;--muted:#78859a;--line:#e8edf4;--paper:#fff;--canvas:#f5f7fb;--navy:#172943;--blue:#4268e8;--green:#199b72;--orange:#e89a36;--red:#d75f66;--shadow:0 8px 24px #20365b0e}
@@ -27,7 +27,8 @@
 .auth-screen{display:grid;min-height:100vh;place-items:center;padding:24px;background:radial-gradient(ellipse at 82% 10%,#ede7fa 0,transparent 36%),linear-gradient(135deg,#f6f7fb,#eef4f1)}
 .auth-card{width:min(100%,440px);padding:30px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 20px 60px #25365e18}
 .auth-brand{display:flex;align-items:center;gap:10px;margin-bottom:22px;color:#6242ad;font-size:19px;font-weight:800;letter-spacing:.3px}
-.auth-brand-mark{display:grid;width:38px;height:38px;place-items:center;border-radius:11px;background:linear-gradient(140deg,#8059d1,#168660);color:#fff;font-size:20px}
+.auth-brand-mark{display:grid;width:38px;height:38px;place-items:center;border-radius:11px;background:linear-gradient(140deg,#8059d1,#168660);color:#fff}
+.auth-brand-mark svg{width:24px;height:24px}
 .auth-card h1{margin:0 0 7px;font-size:22px;letter-spacing:-.4px}
 .auth-description,.auth-note{color:var(--muted);font-size:12px}
 .auth-description{margin:0 0 20px}
@@ -42,7 +43,7 @@
 .auth-config-link{display:block;margin:14px auto 0;padding:0;border:0;background:none;color:#64738a;font-size:10px;text-decoration:underline}
 .auth-user-email{max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 @media(max-width:490px){.auth-card{padding:24px 20px}}
-/* BURSARPRO's signature palette: purple for the brand, green for finance. */
+/* SCHOLIVORA's signature palette: purple for the brand, green for finance. */
 :root{--blue:#7048bd;--green:#168660}
 .brand{color:#d9cdf7;font-weight:800;letter-spacing:.35px}
 .brand-mark{background:linear-gradient(140deg,#8059d1 0%,#6242ad 54%,#168660 100%)}
@@ -107,9 +108,9 @@
 <body>
 <section class="auth-screen" id="authGate">
  <div class="auth-card">
-  <div class="auth-brand"><span class="auth-brand-mark">✦</span>BURSARPRO</div>
+  <div class="auth-brand"><span class="auth-brand-mark"><svg viewBox="0 0 26 24" fill="none" aria-hidden="true"><path d="M16 5.2c-1.4-1.2-3.2-1.7-5.4-1.7-3.7 0-6 1.7-6 4.2 0 2.4 2.1 3.2 6 4.2 3.9.9 5.5 1.8 5.5 4.2 0 2.7-2.4 4.5-6 4.5-2.5 0-4.6-.7-6.1-2.1" stroke="white" stroke-width="2.1" stroke-linecap="round"/><path d="M18 18v3M21 15v6M24 12v9" stroke="#9fe2c5" stroke-width="1.8" stroke-linecap="round"/></svg></span>SCHOLIVORA</div>
   <section id="authAccountSection" hidden>
-   <h1 id="authTitle">Admin sign in</h1><p class="auth-description" id="authDescription">Sign in to your private BURSARPRO school account.</p>
+   <h1 id="authTitle">Admin sign in</h1><p class="auth-description" id="authDescription">Sign in to your private SCHOLIVORA school account.</p>
    <form id="authForm">
     <div class="field"><label for="authEmail">Admin email</label><input id="authEmail" type="email" required autocomplete="email" placeholder="admin@school.org"></div>
     <div class="field"><label for="authPassword">Password</label><input id="authPassword" type="password" required minlength="8" autocomplete="current-password" placeholder="At least 8 characters"></div>
@@ -122,7 +123,7 @@
 </section>
 <div class="app" id="appShell">
 <aside class="sidebar" id="sidebar">
- <div class="brand"><div class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m2.5 9 9.5-5 9.5 5-9.5 5-9.5-5Z"/><path d="M6.5 11.2v4.4c3.4 2.7 7.6 2.7 11 0v-4.4M21.5 9v6"/><path d="m17.5 19 1.1 2.1 2.4.3-1.7 1.7.4 2.4-2.2-1.1-2.1 1.1.4-2.4-1.7-1.7 2.4-.3 1-2.1" transform="translate(-1 -2) scale(.82)"/></svg></div>BURSARPRO</div>
+ <div class="brand"><div class="brand-mark"><svg viewBox="0 0 26 24" fill="none" aria-hidden="true"><path d="M16 5.2c-1.4-1.2-3.2-1.7-5.4-1.7-3.7 0-6 1.7-6 4.2 0 2.4 2.1 3.2 6 4.2 3.9.9 5.5 1.8 5.5 4.2 0 2.7-2.4 4.5-6 4.5-2.5 0-4.6-.7-6.1-2.1" stroke="white" stroke-width="2.1" stroke-linecap="round"/><path d="M18 18v3M21 15v6M24 12v9" stroke="#9fe2c5" stroke-width="1.8" stroke-linecap="round"/></svg></div>SCHOLIVORA</div>
  <div class="school-switch"><div class="school-avatar" id="schoolAvatar"><span id="schoolInitials">MA</span><img id="schoolPhotoImage" alt="" hidden></div><div class="school-meta" style="min-width:0;flex:1;overflow:hidden"><strong id="schoolName" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Maplewood Academy</strong><span>School administrator</span></div><button class="school-edit" id="editSchoolName" type="button" aria-label="Change school name" title="Change school name" style="padding:4px 5px;border:0;border-radius:5px;background:transparent;color:#d9cdf7;font-size:10px;font-weight:650">Edit</button></div>
  <div class="nav-label">Workspace</div><nav class="nav-list" aria-label="Main navigation">
  <button class="nav-item active" data-page="dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="10" width="8" height="11" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/></svg>Overview</button>
@@ -137,8 +138,8 @@
 <main class="main">
  <header class="topbar"><div class="breadcrumb"><button class="mobile-menu" id="mobileMenu" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><span>School finance&nbsp; / &nbsp;<strong id="breadcrumbTitle">Overview</strong></span></div><div class="top-actions"><span class="date-label" id="todayLabel"></span><label class="currency-picker" for="currencySelect"><span>Currency</span><select id="currencySelect" aria-label="Display currency" title="Changes currency formatting only; saved amounts are not converted."><option value="UGX">UGX — Ugandan shilling</option><option value="USD">USD — US dollar</option><option value="EUR">EUR — Euro</option><option value="GBP">GBP — British pound</option><option value="KES">KES — Kenyan shilling</option><option value="TZS">TZS — Tanzanian shilling</option></select></label><button class="icon-button" id="quickAdd" aria-label="Add transaction" title="Add transaction"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg></button></div></header>
  <section class="page active" id="page-dashboard">
-  <section class="preview-banner" aria-label="BURSARPRO school finance">
-   <div class="preview-copy"><div class="preview-eyebrow">School finance, made simple</div><h1>BURSARPRO</h1><p>Every fee. Every expense. Your school’s finances, beautifully in balance.</p></div>
+  <section class="preview-banner" aria-label="SCHOLIVORA school finance">
+   <div class="preview-copy"><div class="preview-eyebrow">School finance, made simple</div><h1>SCHOLIVORA</h1><p>Every fee. Every expense. Your school’s finances, beautifully in balance.</p></div>
    <svg class="preview-art" viewBox="0 0 250 166" fill="none" aria-hidden="true">
     <rect x="17" y="13" width="216" height="139" rx="15" fill="#fff" fill-opacity=".12" stroke="#fff" stroke-opacity=".3"/>
     <rect x="30" y="26" width="190" height="26" rx="7" fill="#fff" fill-opacity=".14"/>
@@ -322,7 +323,7 @@ $("#dashboardPeriod").addEventListener("change",()=>{renderChart($("#dashboardPe
 ["studentSearch","studentFilter"].forEach(id=>{const el=$(`#${id}`);el.addEventListener("input",renderStudents);el.addEventListener("change",renderStudents)});
 $("#reportPeriod").addEventListener("change",renderReports);$("#addStudent").addEventListener("click",studentModal);$("#addPayable").addEventListener("click",payableModal);$("#exportIncome").addEventListener("click",()=>exportTransactions("income"));$("#exportExpenses").addEventListener("click",()=>exportTransactions("expense"));$("#exportReport").addEventListener("click",exportReport);$("#exportLedger").addEventListener("click",exportLedger);$("#helpButton").addEventListener("click",()=>toast("Use the menu to manage income, expenses, student fees, reports, and your ledger."));
 function showAuthAccount(message="",success=false){currentUser=null;cloudReady=false;$("#appShell").style.display="none";$("#authGate").style.display="grid";$("#authAccountSection").hidden=false;$("#authStatus").textContent=message;$("#authStatus").classList.toggle("success",success)}
-function setAuthMode(mode){authMode=mode;const signup=mode==="signup";$("#authTitle").textContent=signup?"Create admin account":"Admin sign in";$("#authDescription").textContent=signup?"Create your admin login. Your school's records will be private to this account.":"Sign in to your private BURSARPRO school account.";$("#authSubmit").textContent=signup?"Create admin account":"Sign in";$("#authSwitchText").textContent=signup?"Already registered?":"New school?";$("#authSwitch").textContent=signup?"Sign in":"Create admin account";$("#authPassword").autocomplete=signup?"new-password":"current-password";$("#authStatus").textContent="";$("#authStatus").classList.remove("success")}
+function setAuthMode(mode){authMode=mode;const signup=mode==="signup";$("#authTitle").textContent=signup?"Create admin account":"Admin sign in";$("#authDescription").textContent=signup?"Create your admin login. Your school's records will be private to this account.":"Sign in to your private SCHOLIVORA school account.";$("#authSubmit").textContent=signup?"Create admin account":"Sign in";$("#authSwitchText").textContent=signup?"Already registered?":"New school?";$("#authSwitch").textContent=signup?"Sign in":"Create admin account";$("#authPassword").autocomplete=signup?"new-password":"current-password";$("#authStatus").textContent="";$("#authStatus").classList.remove("success")}
 async function saveInitialCloudData(snapshot,user){await saveCloudSnapshot(snapshot,user)}
 async function startAuthenticatedAccount(user){if(!user||startingUserId===user.id||currentUser?.id===user.id&&cloudReady)return;startingUserId=user.id;cloudReady=false;$("#appShell").style.display="none";showAuthAccount("Loading your private school records…",true);try{const{data:record,error}=await supabaseClient.from("bursarpro_data").select("data").eq("user_id",user.id).maybeSingle();if(error)throw error;let initialData,needsInitialSave=false,migratingLegacy=false;if(record){if(!validFinanceData(record.data))throw Error("The saved cloud record is invalid. Contact your administrator.");initialData=record.data}else{let legacy=null;if(LEGACY_SNAPSHOT&&!localStorage.getItem(MIGRATION_KEY)){try{legacy=JSON.parse(LEGACY_SNAPSHOT)}catch(error){console.error("Could not read the previous browser records for migration:",error)}}initialData=validFinanceData(legacy)?legacy:emptyData();migratingLegacy=validFinanceData(legacy);needsInitialSave=true}setFinanceData(initialData);if(needsInitialSave){await saveInitialCloudData(data,user);if(migratingLegacy)localStorage.setItem(MIGRATION_KEY,user.id)}currentUser=user;cloudReady=true;$("#adminEmail").textContent=user.email||"Administrator";$("#adminAvatar").textContent=String(user.email||"AD").slice(0,2).toUpperCase();$("#currencySelect").value=data.currency;renderAll();$("#authGate").style.display="none";$("#appShell").style.display="flex"}catch(error){console.error("Could not load the authenticated school account:",error);currentUser=null;cloudReady=false;showAuthAccount(`Could not load private school data. Run supabase.sql in your Supabase project and check its URL, key, and policies. ${error.message||""}`)}finally{startingUserId=""}}
 async function connectSupabase(config){if(!window.supabase?.createClient){showAuthAccount("Supabase could not load. Check your internet connection and reload the app.");return}try{if(authSubscription){authSubscription.unsubscribe();authSubscription=null}supabaseClient=window.supabase.createClient(config.url,config.anonKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});const{data:{subscription}}=supabaseClient.auth.onAuthStateChange((event,session)=>{window.setTimeout(()=>{if(session)startAuthenticatedAccount(session.user);else if(currentUser){currentUser=null;cloudReady=false;$("#appShell").style.display="none";showAuthAccount("You have signed out.")}},0)});authSubscription=subscription;const{data,error}=await supabaseClient.auth.getSession();if(error)throw error;if(data.session){await startAuthenticatedAccount(data.session.user)}else{showAuthAccount()}}catch(error){console.error("Could not connect to Supabase:",error);showAuthAccount(`Could not connect to Supabase. Check the app configuration and project status. ${error.message||""}`)}}
