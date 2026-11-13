@@ -1,3 +1,5 @@
+-- App-owner setup: run once in the shared Supabase project used by SCHOLIVORA.
+-- End users only need a SCHOLIVORA login; they do not need Supabase dashboard access.
 create table if not exists public.bursarpro_data (
     user_id uuid primary key references auth.users (id) on delete cascade,
     data jsonb not null,
